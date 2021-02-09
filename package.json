@@ -4,7 +4,8 @@
   "description": "showcasing the use of UI5 custom controls via npm",
   "main": "packages/ui5-app/webapp/indexBareBones.html",
   "scripts": {
-    "start": "yarn workspace ui5-app ui5 serve"
+    "start": "yarn workspace ui5-app ui5 serve",
+    "build": "yarn workspace ui5-app ui5 build --all"
   },
   "keywords": [
     "ui5",
