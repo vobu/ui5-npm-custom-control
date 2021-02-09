@@ -24,7 +24,7 @@ $> yarn start # does ui5 serve
 ```bash
 # in / of this repo
 $> yarn 
-$> yarn start # does ui5 build --all
+$> yarn build # does ui5 build --all
 ```
 
 ## license
