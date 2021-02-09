@@ -41,15 +41,16 @@ sap.ui.define(["sap/ui/core/Control"], (Control) => {
             apiVersion: 2,
             render(oRM, oControl) {
                 oRM.openStart("p", oControl)
-                oRM.writeControlData(oControl)
                 oRM.openEnd()
-                oRM.write("UI5 custom control: Hello World!")
+                oRM.text("UI5 custom control: Hello World!")
                 oRM.close("p")
             }
         }
     })
 })
 ```
+
+![html output of the custom control](./ui5-cc-html.png)
 
 A UI5 type `module` can be transferred into an npm module by simply giving it an `npm init`:
 
