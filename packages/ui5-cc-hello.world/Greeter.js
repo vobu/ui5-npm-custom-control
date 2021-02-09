@@ -11,9 +11,8 @@ sap.ui.define(["sap/ui/core/Control"], (Control) => {
              */
             render(oRM, oControl) {
                 oRM.openStart("p", oControl)
-                oRM.writeControlData(oControl)
                 oRM.openEnd()
-                oRM.write("UI5 custom control: Hello World!")
+                oRM.text("UI5 custom control: Hello World!")
                 oRM.close("p")
             }
         }
