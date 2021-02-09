@@ -108,7 +108,7 @@ In a UI5 app, it’s now as easy as requiring the custom control via `dependenci
 
 There's also no need to fiddle with `data-sap-ui-resourceroots` in the bootstrap html - the `ui5-tooling` automatically serves `resources/**/*` to the application.
 
-A note on theming: while UI5 libraries generally contain support for themes, the here presented npm-custom control approach can only include theme-specific optics by [using CSS variables. Bespoken CSS variables](https://github.com/SAP/theming-base-content/blob/master/content/Base/baseLib/sap_fiori_3/css_variables.css) are recognized by the `ui5-tooling` at development time!
+A note on theming 🛠: while UI5 libraries generally contain support for themes, the here presented npm-custom control approach can only include theme-specific optics by [using CSS variables. Bespoken CSS variables](https://github.com/SAP/theming-base-content/blob/master/content/Base/baseLib/sap_fiori_3/css_variables.css) are recognized by the `ui5-tooling` at development time! Please dig into [the blog post by UI5 chieftain Peter Müßig](https://blogs.sap.com/2020/04/20/ui5ers-buzz-52-the-rendering-evolution-semantic-rendering-and-css-variables/) for how to use CSS variables in your UI5 app - and thus, in UI5 custom controls.
 
 ### 3rd party modules in custom control
 
