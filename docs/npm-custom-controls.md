@@ -11,6 +11,7 @@ Until now, the primary means of reusing UI5 custom controls was to wrap them in 
 But next to `application` and `(theme-)library`, the `ui5-tooling` [also allows for a type `module`](https://sap.github.io/ui5-tooling/pages/Configuration/). This describes a generic …well.. "module" that can be attached to a namespace ("resource root", in UI5 speak).
 
 ```yaml
+# packages/ui5-cc-hello.world/ui5.yaml
 specVersion: "2.2"
 type: module
 metadata:
@@ -30,10 +31,10 @@ Subsequently, that namespace can be used by the UI5 runtime to include Controls,
 
 ## dev-time: controls as npm modules
 
-A UI5 custom control consists of the module logic and a renderer. The can be split (e.g. look at `sap.m.Text.js` and `sap.m.TextRenderer.js`) or exist in the same file, using a static `renderer` function:
+A UI5 custom control consists of the module logic and a renderer. They can either be split (e.g. look at `sap.m.Text.js` and `sap.m.TextRenderer.js`) or exist in the same file, using a static `renderer` function:
 
 ```javascript
-// World.js
+// packages/ui5-cc-hello.world/Greeter.js
 sap.ui.define(["sap/ui/core/Control"], (Control) => {
     return Control.extend("cc.hello.world.Greeter", {
         renderer: {
@@ -50,9 +51,9 @@ sap.ui.define(["sap/ui/core/Control"], (Control) => {
 })
 ```
 
-A UI5 type `module` can be transferred into an npm module by simply giving it a `npm init`:
+A UI5 type `module` can be transferred into an npm module by simply giving it an `npm init`:
 
-```
+```text
 // file system view
 ui5-cc-hello.world
 ├── Greeter.js
@@ -81,12 +82,13 @@ By combining the `ui5-tooling` descriptor `ui5.yaml` with a `package.json`, the 
 In a UI5 app, it’s now as easy as requiring the custom control via `dependencies` and `ui5.dependencies`...
 
 ```json
+// in packages/ui5-app/package.json
 "dependencies": {
         "ui5-cc-hello.world": "0.0.1"
     },
 "ui5": {
     "dependencies": [
-    	"ui5-cc-hello.world"
+        "ui5-cc-hello.world"
     ]
 }
 ```
@@ -94,7 +96,8 @@ In a UI5 app, it’s now as easy as requiring the custom control via `dependenci
 …and using the namespace and control in a view:
 
 ```xml
-<!-- $some.view.xml -->
+<!-- packages/ui5-app/webapp/indexBareBones.html -->
+<!-- in xml template literal -->
 <mvc:View xmlns:hello.world="cc.hello.world">
     <hello.world:Greeter />            
 </mvc:View>
@@ -117,7 +120,7 @@ First, the 3rd party modules needs to be included into the custom control by sta
 ```json
 // from: ui5-cc-md
 "dependencies": {
-	"marked": "^1.2.9"
+    "marked": "^1.2.9"
 }
 ```
 
@@ -165,7 +168,7 @@ No more need to copy/paste 3rd party source code into the custom control realm!
 
 ## addendum: build time for the app
 
-When developing custom controls, there’s generally speaking no need for build artefacts. Once the code runs as desired, the ui5 custom control can be published to npm or any other registry, and is ready to be used. Optimizations -such as providing a minified, runtime-optimized version and a `-dbg.js` human readable counterpart, are possible, but not required.
+When developing custom controls, there’s generally no need for build artefacts. Once the code runs as desired, the ui5 custom control can be published to npm or any other registry, and is ready to use. Optimizations -such as providing a minified, runtime-optimized version and a `-dbg.js` human readable counterpart, are possible, but not required.
 
 From the viewpoint of the *application* the npm-distributed custom control is used in, a "standalone" build is necessary to make the app -including the custom control(s)- run in enviornments other than the `ui5-tooling`. By doing `ui5 build --all` , the npm-based custom controls are copied into the `dist/resources` folder (including all shims!) and are available for deployment.
 
@@ -216,8 +219,8 @@ With the prefix, it makes searching for custom UI5 controls easier. And by inclu
 
 Examples:
 
-- ui5-cc-md &rarr; only holds 1 custom control, `Markdown`, in namespace `md`
-- ui5-cc-hello.world &rarr; uses namespace `hello.world` for included custom controls
+- `ui5-cc-md` &rarr; only holds 1 custom control, `Markdown`, in namespace `md`
+- `ui5-cc-hello.world` &rarr; uses namespace `hello.world` for included custom controls
 
 
 
