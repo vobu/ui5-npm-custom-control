@@ -1,0 +1,7 @@
+{
+  "name": "ui5-cc-hello.world",
+  "version": "0.0.1",
+  "description": "UI5 custom (notepad) control demo",
+  "author": "Volker Buzek <volker.buzek@js-soft.com>",
+  "license": "Beerware"
+}

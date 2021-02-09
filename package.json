@@ -1,0 +1,20 @@
+{
+  "name": "ui5-npm-custom-control",
+  "version": "1.0.0",
+  "description": "showcasing the use of UI5 custom controls via npm",
+  "main": "packages/ui5-app/webapp/indexBareBones.html",
+  "scripts": {
+    "start": "yarn workspace ui5-app ui5 serve"
+  },
+  "keywords": [
+    "ui5",
+    "custom",
+    "control"
+  ],
+  "author": "Volker Buzek <volker.buzek@js-soft.com>",
+  "license": "Beerware",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true
+}
