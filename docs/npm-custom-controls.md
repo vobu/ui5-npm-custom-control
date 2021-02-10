@@ -2,7 +2,18 @@
 
 *tl;dr*: the `ui5-tooling` supports using custom controls from the npm realm, for both development- and build-time. This makes re-use and distribution of custom controls easier than wrapping them in a library.
 
+## in here:
+
+* [prelude](#prelude)
+* [dev-time: controls as npm modules](#dev-time-controls-as-npm-modules)
+    * [npm-based UI5 custom control in an app](#npm-based-ui5-custom-control-in-an-app)
+    * [3rd party modules in custom control](#3rd-party-modules-in-custom-control)
+* [addendum: build time for the app](#addendum-build-time-for-the-app)
+* [naming convention: ui5-cc-$name.space](#naming-convention-ui5-cc-namespace)
+
+
 🔥 A barebones example repo is at <https://github.com/vobu/ui5-npm-custom-control>
+
 
 ## prelude
 
