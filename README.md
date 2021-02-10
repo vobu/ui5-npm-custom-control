@@ -7,7 +7,7 @@ this repository showcases two things:
 
 This project uses `yarn workspaces` in order to simulate `ui5-cc-hello.world` being the custom control on the public npm registry, and `ui5-app` using bespoken custom control at dev- and build-time.
 
-Blog post with all the details: ...
+Blog post with all the details: https://blogs.sap.com/2021/02/10/distribute-and-reuse-ui5-custom-controls-via-npm/
 
 ## get started
 
